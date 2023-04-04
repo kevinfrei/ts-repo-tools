@@ -1,0 +1,63 @@
+{
+  "name": "@freik/search",
+  "version": "1.0.0",
+  "description": "A small trie-based search index builder",
+  "author": "Kevin Frei (kevinfrei@hotmail.com)",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/kevinfrei/search/issues"
+  },
+  "homepage": "https://github.com/kevinfrei/search#readme",
+  "keywords": ["js-utils"],
+  "repository": "github:kevinfrei/search",
+  "module": "./lib/esm/index.js",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "watch": "jest --watch --config jestconfig.json",
+    "clean": "rimraf lib .*.tsbuildinfo",
+    "release": "yarn clean && tsc --project tsconfig.cjs.opt.json && tsc --project tsconfig.esm.opt.json && yarn ftool minify -i -r lib",
+    "build": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
+    "cleanbuild": "yarn clean && yarn build",
+    "dbg": "yarn clean && tsc --sourceMap true --project tsconfig.cjs.json && tsc --sourceMap true --project tsconfig.esm.json",
+    "postinstall": "husky install",
+    "prepublishOnly": "yarn test && yarn lint && yarn pinst --disable",
+    "postpublish": "yarn pinst --enable",
+    "prepare": "yarn release",
+    "format": "yarn run prettier -w package.json src/**/*.ts",
+    "lint": "eslint --fix --ext .ts src",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags --no-verify",
+    "compile": "tsc --noEmit --project tsconfig.cjs.json && tsc --noEmit --project tsconfig.esm.json",
+    "chk": "yarn format && yarn lint && yarn compile && yarn test",
+    "doc": "typedoc ./src/index.ts --readme none --tsconfig tsconfig.esm.json"
+  },
+  "devDependencies": {
+    "@freik/build-tools": "^3.4.12",
+    "@freik/core-utils": "^1.4.5",
+    "@jest/types": "^29.5.0",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.3",
+    "jest": "^29.5.0",
+    "pinst": "^3.0.0",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "ts-jest": "^29.0.5",
+    "typedoc": "^0.23.28",
+    "typedoc-plugin-markdown": "^3.14.0",
+    "typescript": "^5.0.3"
+  },
+  "files": ["lib/**/*"],
+  "engines": {
+    "node": "^14.13.1 || >= 16.0.0"
+  },
+  "packageManager": "yarn@3.5.0"
+}
