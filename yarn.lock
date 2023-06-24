@@ -1561,13 +1561,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@freik/core-utils@npm:^1.4.5":
-  version: 1.4.5
-  resolution: "@freik/core-utils@npm:1.4.5"
-  checksum: 2c3fcfea19c6d415d8c482662c7733372da082982951dd8c001402f84e6f303debe4ea4a5ec32100fec4809a038eed6a001f77c70f4bc21f1a20e97c0fd762af
-  languageName: node
-  linkType: hard
-
 "@freik/is-hidden-file@npm:^1.10.11":
   version: 1.10.11
   resolution: "@freik/is-hidden-file@npm:1.10.11"
@@ -1595,7 +1588,6 @@ __metadata:
   resolution: "@freik/search@workspace:."
   dependencies:
     "@freik/build-tools": ^3.4.12
-    "@freik/core-utils": ^1.4.5
     "@jest/types": ^29.5.0
     "@types/jest": ^29.5.0
     "@types/node": ^18.15.11

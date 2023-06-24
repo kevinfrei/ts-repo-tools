@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@freik/build-tools": "^3.4.12",
-    "@freik/core-utils": "^1.4.5",
     "@jest/types": "^29.5.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^18.15.11",
